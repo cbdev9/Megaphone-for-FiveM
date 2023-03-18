@@ -1,5 +1,16 @@
-local QBCore = exports['qb-core']:GetCoreObject()
+if Config.Framework == 'qb-core' then
+    local QBCore = exports['qb-core']:GetCoreObject()
+    
+    QBCore.Functions.CreateUseableItem('megaphone', function(source)
+        TriggerClientEvent('megaphone:use', source)
+    end)
+elseif Config.Framework == 'esx' then
+    local ESX = exports['es_extended']:getSharedObject()
 
-QBCore.Functions.CreateUseableItem('megaphone', function(source, item)
-    TriggerClientEvent('megaphone:use', source)
-end)
+    ESX.RegisterUsableItem('megaphone', function(source)
+        local xPlayer = ESX.GetPlayerFromId(source)
+        if xPlayer then
+            TriggerClientEvent('megaphone:use', source)
+        end
+    end)
+end
