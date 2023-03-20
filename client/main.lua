@@ -11,11 +11,13 @@ RegisterNetEvent('megaphone:use')
 AddEventHandler('megaphone:use', function()
     if usingMegaphone then 
         DisableSubmix()
+        exports["pma-voice"]:clearProximityOverride()
     end
     usingMegaphone = not usingMegaphone
     CreateThread(function()
         if usingMegaphone then
             TriggerServerEvent('megaphone:applySubmix', true)
+            exports["pma-voice"]:overrideProximityRange(30.0, true)
         end
         while usingMegaphone do
             if not IsEntityPlayingAnim(PlayerPedId(), "molly@megaphone", "megaphone_clip", 3) then
