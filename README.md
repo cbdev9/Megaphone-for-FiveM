@@ -1,3 +1,7 @@
+Discord : https://discord.gg/ASrdTD7DU9
+
+
+
 Step 1 - Add item in qb-core/shared/items.lua
 
 	['megaphone'] 			 	 = {['name'] = 'megaphone', 					['label'] = 'Megaphone', 		['weight'] = 500, 		['type'] = 'item', 		['image'] = 'megaphone.png', 		['unique'] = false, 		['useable'] = false, 	['shouldClose'] = false,	   ['combinable'] = nil,   ['description'] = ''},
