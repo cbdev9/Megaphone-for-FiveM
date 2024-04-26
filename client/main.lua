@@ -11,13 +11,11 @@ RegisterNetEvent('megaphone:use')
 AddEventHandler('megaphone:use', function()
     if usingMegaphone then 
         DisableSubmix()
-        exports["pma-voice"]:clearProximityOverride()
     end
     usingMegaphone = not usingMegaphone
     CreateThread(function()
         if usingMegaphone then
             TriggerServerEvent('megaphone:applySubmix', true)
-            exports["pma-voice"]:overrideProximityRange(30.0, true)
         end
         while usingMegaphone do
             if not IsEntityPlayingAnim(PlayerPedId(), "molly@megaphone", "megaphone_clip", 3) then
@@ -29,14 +27,14 @@ AddEventHandler('megaphone:use', function()
 end)
 
 local data = {
-    [`default`] = 0,
-    [`freq_low`] = 0.0,
-    [`freq_hi`] = 10000.0,
-    [`rm_mod_freq`] = 300.0,
+    [`default`] = 1,
+    [`freq_low`] = 300.0,
+    [`freq_hi`] = 5000.0,
+    [`rm_mod_freq`] = 0.0,
     [`rm_mix`] = 0.2,
     [`fudge`] = 0.0,
-    [`o_freq_lo`] = 200.0,
-    [`o_freq_hi`] = 5000.0,
+    [`o_freq_lo`] = 550.0,
+    [`o_freq_hi`] = 0.0,
 }
 
 local filter
@@ -52,8 +50,17 @@ end)
 
 RegisterNetEvent('megaphone:updateSubmixStatus', function(state, source)
     if state then
+        if Config.ForceVolume then
+            MumbleSetVolumeOverrideByServerId(source, 0.90)
+        end
         MumbleSetSubmixForServerId(source, filter)
+        exports['pma-voice']:overrideProximityRange(Config.ForcedProximity, false)
     else
         MumbleSetSubmixForServerId(source, -1)
+        if Config.ForceVolume then
+            MumbleSetVolumeOverrideByServerId(source, -1.0)
+        end
+        exports['pma-voice']:clearProximityOverride()
+        MumbleClearVoiceTargetPlayers(1.0)
     end
 end)
