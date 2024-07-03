@@ -7,8 +7,8 @@ end
 
 local usingMegaphone = false
 
-RegisterNetEvent('megaphone:use')
-AddEventHandler('megaphone:use', function()
+
+function useMegaphone()
     if usingMegaphone then 
         DisableSubmix()
     end
@@ -24,6 +24,12 @@ AddEventHandler('megaphone:use', function()
             Wait(100)
         end
     end)
+end
+exports('useMegaphone', useMegaphone)
+
+RegisterNetEvent('megaphone:use')
+AddEventHandler('megaphone:use', function()
+    useMegaphone()
 end)
 
 local data = {
