@@ -8,6 +8,9 @@ description 'FiveM megaphone script'
 author 'cb'
 url 'https://cb-development.tebex.io/'
 
+shared_scripts {
+    'config.lua'
+}
 
 client_scripts {
     'client/main.lua'
