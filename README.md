@@ -1,21 +1,4 @@
-Step 1 - 
-
-[QBCORE] - Add item in qb-core/shared/items.lua
-
-	['megaphone'] 			 	 = {['name'] = 'megaphone', 					['label'] = 'Megaphone', 		['weight'] = 500, 		['type'] = 'item', 		['image'] = 'megaphone.png', 		['unique'] = false, 		['useable'] = false, 	['shouldClose'] = false,	   ['combinable'] = nil,   ['description'] = ''},
-
-[ESX] - Add item in ox_inventory/data/items.lua
-
-    ['megaphone'] = {
-		label = 'Megaphone',
-		weight = 500,
-		consume = 0,
-		client = {
-			export = 'cb-megaphone.useMegaphone',
-		},
-		stack = false,
-	},
- 
+Step 1 - Add items in ESX or QBCore depending on your framework. Check the folder called items
 
 Step 2 - Add the following code to dpemotes :
 

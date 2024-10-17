@@ -1,6 +1,6 @@
 if Config.Framework == 'qb-core' then
     local QBCore = exports['qb-core']:GetCoreObject()
-    
+
     QBCore.Functions.CreateUseableItem('megaphone', function(source)
         TriggerClientEvent('megaphone:use', source)
     end)

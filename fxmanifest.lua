@@ -3,14 +3,11 @@ game 'gta5'
 lua54 'yes'
 
 name 'cb-megaphone'
-version '1.0.0'
+version '1.0.1'
 description 'FiveM megaphone script'
-author 'cb'
+author 'cb, xdope'
 url 'https://cb-development.tebex.io/'
 
-shared_scripts {
-    'config.lua'
-}
 
 client_scripts {
     'client/main.lua'
