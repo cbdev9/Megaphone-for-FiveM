@@ -1,3 +1,5 @@
+Showcase : [CFX](https://forum.cfx.re/t/free-megaphone-script/5049366/)
+
 Step 1 - Add items in ESX or QBCore depending on your framework. Check the folder called items
 
 Step 2 - Add the following code to dpemotes :
