@@ -6,7 +6,7 @@ Add item in ox_inventory/data/items.lua
     weight = 500,
     consume = 0,
     client = {
-        export = 'cb-megaphone.useMegaphone',
+        export = 'cb-megaphone.UseMegaphone',
     },
     stack = false,
 },
